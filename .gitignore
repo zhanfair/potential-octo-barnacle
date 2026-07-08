@@ -8,6 +8,10 @@ __pycache__/
 douyin_samples/
 transcripts/
 video_clips/
+video_outputs/
+voice_outputs/
+voice_refs/
+pretrained_models/
 
 # Local/cache files
 .DS_Store

@@ -41,6 +41,23 @@ CORE_CLIPS = [
     ClipSpec("S13_EP04_4006_4137_naoko_folds_shirt", 4, "40:06", "41:37"),
 ]
 
+BROLL_CLIPS = [
+    ClipSpec("BROLL_EP01_0244_0259_starts_drawing", 1, "02:44", "02:59"),
+    ClipSpec("BROLL_EP01_0420_0443_sketch_wall", 1, "04:20", "04:43"),
+    ClipSpec("BROLL_EP01_2056_2136_style_realization", 1, "20:56", "21:36"),
+    ClipSpec("BROLL_EP01_3550_3615_sea_arrival", 1, "35:50", "36:15"),
+    ClipSpec("BROLL_EP01_3639_3723_seaside_walk_life", 1, "36:39", "37:23"),
+    ClipSpec("BROLL_EP01_3755_3935_sea_life_empty_shots", 1, "37:55", "39:35"),
+    ClipSpec("BROLL_EP01_4212_4325_pencil_storyboard", 1, "42:12", "43:25"),
+    ClipSpec("BROLL_EP02_0320_0350_gesture_direction", 2, "03:20", "03:50"),
+    ClipSpec("BROLL_EP02_0816_0945_real_child_fuki", 2, "08:16", "09:45"),
+    ClipSpec("BROLL_EP02_1003_1028_three_meter_radius", 2, "10:03", "10:28"),
+    ClipSpec("BROLL_EP02_4202_4308_toki_stands", 2, "42:02", "43:08"),
+    ClipSpec("BROLL_EP02_4402_4659_toki_hug", 2, "44:02", "46:59"),
+]
+
+ALL_CLIPS = CORE_CLIPS + BROLL_CLIPS
+
 
 def parse_time(value: str) -> float:
     parts = [float(part) for part in value.split(":")]
@@ -151,6 +168,12 @@ def main() -> int:
     parser.add_argument("--output-dir", default="video_clips/miyazaki_first_video")
     parser.add_argument("--only", help="Cut one clip by name.")
     parser.add_argument(
+        "--set",
+        choices=["core", "broll", "all"],
+        default="core",
+        help="Choose which clip set to cut.",
+    )
+    parser.add_argument(
         "--mode",
         choices=["video-only", "streamcopy"],
         default="video-only",
@@ -161,9 +184,9 @@ def main() -> int:
 
     source_dir = Path(args.source_dir)
     output_dir = Path(args.output_dir)
-    specs = CORE_CLIPS
+    specs = {"core": CORE_CLIPS, "broll": BROLL_CLIPS, "all": ALL_CLIPS}[args.set]
     if args.only:
-        specs = [clip for clip in CORE_CLIPS if clip.name == args.only]
+        specs = [clip for clip in ALL_CLIPS if clip.name == args.only]
         if not specs:
             raise SystemExit(f"Unknown clip name: {args.only}")
 

@@ -1,0 +1,7 @@
+interface:
+  display_name: "人物拆解视频流程"
+  short_description: "分阶段导航人物拆解视频创作流程"
+  default_prompt: "Use $character-video-workflow to run a staged character breakdown video project."
+
+policy:
+  allow_implicit_invocation: true
