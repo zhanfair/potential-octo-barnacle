@@ -7,6 +7,7 @@ __pycache__/
 # Large media and generated assets
 douyin_samples/
 transcripts/
+video_clips/
 
 # Local/cache files
 .DS_Store
@@ -16,4 +17,3 @@ Thumbs.db
 # Editor/system metadata
 .idea/
 .vscode/
-
