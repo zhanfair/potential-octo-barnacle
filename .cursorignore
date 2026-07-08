@@ -1,0 +1,7 @@
+.venv-whisper/
+douyin_samples/**/*.mp4
+douyin_samples/**/*.jpg
+douyin_samples/**/*.png
+**/__pycache__/
+*.pyc
+.git/

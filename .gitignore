@@ -1,0 +1,19 @@
+# Local environments
+.venv/
+.venv-*/
+__pycache__/
+*.pyc
+
+# Large media and generated assets
+douyin_samples/
+transcripts/
+
+# Local/cache files
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor/system metadata
+.idea/
+.vscode/
+
